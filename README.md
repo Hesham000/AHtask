@@ -116,16 +116,38 @@ Create `.env` files in both backend and frontend directories:
 
 **Backend `.env**:**
 ```env
-PORT=3000
+# Server Configuration
 NODE_ENV=development
-RIOT_API_KEY=your_riot_api_key_here
+PORT=3000
+API_VERSION=v1
+
+# CORS Configuration
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:3001,http://localhost:5173
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+
+# Logging
 LOG_LEVEL=info
+LOG_FILE=logs/app.log
 ```
 
 **Frontend `.env**:**
 ```env
-VITE_API_BASE_URL=http://localhost:3000/api/v1
-VITE_APP_TITLE=RIFT ANALYTICS
+# API Configuration
+VITE_API_URL=http://localhost:3000/api/v1
+
+# Development Settings
+VITE_NODE_ENV=development
+
+# Application Settings
+VITE_APP_TITLE=League of Legends Match Analytics
+VITE_APP_VERSION=1.0.0
+
+# Optional: Data Dragon CDN for champion images
+VITE_DDRAGON_VERSION=13.24.1
+VITE_DDRAGON_CDN=https://ddragon.leagueoflegends.com/cdn
 ```
 
 ### Running the Application
